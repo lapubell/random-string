@@ -1,13 +1,15 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"math/rand"
 	"time"
 
 	"github.com/atotto/clipboard"
 )
 
-var chars = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789!@#$%^&*()")
+var chars = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789!@#$%*")
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
@@ -15,5 +17,9 @@ func main() {
 	for i := range b {
 		b[i] = chars[rand.Intn(len(chars))]
 	}
-	clipboard.WriteAll(string(b))
+	err := clipboard.WriteAll(string(b))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(b))
 }
