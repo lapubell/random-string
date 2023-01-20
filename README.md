@@ -8,3 +8,9 @@ This program generates a random 32 char string, and adds it to your clipboard. N
 * `go get ...`
 * `go install`
 * now, when you run `randomString` your clipboard should have a 32 character random string
+
+## If you are wanting a hexadecimal instend of a big ol' random ASCII string
+
+Then just pass the `--hex` flag. Like this:
+
+`randomString --hex`
